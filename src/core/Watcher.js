@@ -38,7 +38,7 @@ export default class Watcher {
     if (value !== this.value) {
       const oldValue = this.value;
       this.value = value;
-      cb(value);
+      cb(value,oldValue);
     }
   }
 }

@@ -25,8 +25,8 @@ export default function defineReactive(data, key, val) {
       return val;
     },
     set(value) {
-      console.log('设置了: ', key, value);
       if (value == val) return;
+      console.log('设置了: ', key, value);
       // 新值设置响应式
       childOb = observe(value);
       val = value;
