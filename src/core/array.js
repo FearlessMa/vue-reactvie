@@ -35,6 +35,7 @@ methodsToPatch.forEach((method) => {
     }
     // 观察新增的数据
     if (inserted) ob.observeArray(inserted);
+    ob.dep.notify()
     // console.log('inserted: ', inserted);
     return result;
   });
