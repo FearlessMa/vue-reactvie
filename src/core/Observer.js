@@ -35,4 +35,5 @@ export default class Observer {
       observe(arr[i]);
     }
   }
+
 }

@@ -3,11 +3,11 @@ import Dep from './Dep';
 let uid = 0;
 
 export default class Watcher {
-  // target  express :'a.b.c.d'
-  constructor(target, expression, callback) {
+  // targetObj  express :'a.b.c.d'
+  constructor(targetObj, expression, callback) {
     console.log('watcher的构造函数');
     this.id = uid++;
-    this.target = target;
+    this.targetObj = targetObj;
     this.callback = callback;
     this.getter = parsePath(expression);
     this.value = this.get();
@@ -20,7 +20,7 @@ export default class Watcher {
   get() {
     // 赋值 watcher 到 全局
     Dep.target = this;
-    const obj = this.target;
+    const obj = this.targetObj;
     let value;
     try {
       value = this.getter(obj);
@@ -34,11 +34,11 @@ export default class Watcher {
     this.getAndInvoke(this.callback);
   }
   getAndInvoke(cb) {
-    const value = this.get();
-    if (value !== this.value) {
+    const newValue = this.get();
+    if (newValue !== this.value) {
       const oldValue = this.value;
-      this.value = value;
-      cb(value,oldValue);
+      this.value = newValue;
+      cb(newValue,oldValue);
     }
   }
 }

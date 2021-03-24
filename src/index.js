@@ -15,10 +15,10 @@ new Watcher(obj, 'a.m.n', function(val,oldVal) {
   console.log('------- Watcher: val -------', val);
   console.log('oldVal: ', oldVal);
 });
-new Watcher(obj, 'd.q.z', function(val,oldVal) {
-  console.log(' ------- Watcher: val-------', val);
-  console.log('oldVal: ', oldVal);
-});
+// new Watcher(obj, 'd.q.z', function(val,oldVal) {
+//   console.log(' ------- Watcher: val-------', val);
+//   console.log('oldVal: ', oldVal);
+// });
 
-obj.a.m.n = 10;
-obj.d.q.z = 8;
+// obj.a.m.n = 10;
+// obj.d.q.z = 8;
